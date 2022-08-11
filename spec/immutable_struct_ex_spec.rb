@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe ImmutableStructEx do
   subject { described_class.new(**hash) }
 
@@ -17,7 +19,7 @@ RSpec.describe ImmutableStructEx do
 
   describe '#[]=' do
     it 'undefines :[]=' do
-      expect(subject.respond_to? :[]=).to eq false
+      expect(subject.respond_to?(:[]=)).to eq false
     end
   end
 
@@ -45,7 +47,7 @@ RSpec.describe ImmutableStructEx do
     subject do
       described_class.new(**hash) do
         def key?(key)
-          self.to_h.key? key
+          to_h.key? key
         end
 
         def key1?
