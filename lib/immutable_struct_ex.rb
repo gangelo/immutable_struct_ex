@@ -1,5 +1,8 @@
-require "immutable_struct_ex/version"
+# frozen_string_literal: true
 
+require 'immutable_struct_ex/version'
+
+# Defines the methods used to create/manage the ImmutableStructEx struct.
 module ImmutableStructEx
   class << self
     def new(**hash, &block)

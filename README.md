@@ -1,8 +1,54 @@
 # ImmutableStructEx
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/immutable_struct_ex`. To experiment with that code, run `bin/console` for an interactive prompt.
+_ImmutableStructEx_ is yet another immutable struct. What makes ImmutableStructEx different, is that it allows you to create immutable structs in one step _by default_. In other words, other immutable struct gems force you to first define the struct, then instantiate the struct object; or, define the struct and instantiate the struct object via chaining. For example:
 
-TODO: Delete this and the text above, and describe your gem
+## Other Immutable Structs
+
+```ruby
+# Two steps...
+some_immutable_struct = SomeImmutableStruct.new(:first, :last, :phone)
+some_immutable_struct.new(first: 'John', last: 'Doe', phone: '(201) 230-7281')
+
+# Chaining...
+some_immutable_struct = SomeImmutableStruct.new(:first, :last, :phone)
+                          .new(first: 'John', last: 'Doe', phone: '(201) 230-7281')
+```
+
+## ImmutableStructEx
+ImmutableStructEx allows you do this in one step:
+
+```ruby
+immutable_struct_ex = ImmutableStructEx.new(first: 'John', last: 'Doe', phone: '(201) 230-7281')
+immutable_struct_ex.first   
+#=> 'John'
+immutable_struct_ex[:first]
+#=> 'John'
+immutable_struct_ex.last    
+#=> 'Doe'
+immutable_struct_ex.phone   
+#=> '(201) 230-7281'
+```
+### Immutable
+Like other immutable structs, ImmutableStructEx also removes methods that change the state of the object:
+```ruby
+immutable_struct_ex.first = 'Joe'
+#=> NoMethodError: undefined method `first='...
+immutable_struct_ex[:first] = 'Joe'
+#=> NoMethodError: undefined method `[]='...
+```
+
+### Blocks
+Also, not unlike other immutable structs, ImmutableStructEx also allows you to pass a block:
+```ruby
+# With a block
+immutable_struct_ex = ImmutableStructEx.new(first: 'John', last: 'Doe', phone: '(201) 230-7281') do
+  def john?
+    first == 'John'
+  end
+end
+immutable_struct_ex.john?
+#=> true
+```
 
 ## Installation
 
@@ -19,10 +65,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install immutable_struct_ex
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 
