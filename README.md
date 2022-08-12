@@ -1,3 +1,13 @@
+[![GitHub version](http://badge.fury.io/gh/gangelo%2Fimmutable_struct_ex.svg)](https://badge.fury.io/gh/gangelo%2Fimmutable_struct_ex)
+[![Gem Version](https://badge.fury.io/rb/immutable_struct_ex.svg)](https://badge.fury.io/rb/immutable_struct_ex)
+
+[![](http://ruby-gem-downloads-badge.herokuapp.com/immutable_struct_ex?type=total)](http://www.rubydoc.info/gems/immutable_struct_ex/)
+[![Documentation](http://img.shields.io/badge/docs-rdoc.info-blue.svg)](http://www.rubydoc.info/gems/immutable_struct_ex/)
+
+[![Report Issues](https://img.shields.io/badge/report-issues-red.svg)](https://github.com/gangelo/immutable_struct_ex/issues)
+
+[![License](http://img.shields.io/badge/license-MIT-yellowgreen.svg)](#license)
+
 # ImmutableStructEx
 
 _ImmutableStructEx_ is yet another immutable struct. What makes ImmutableStructEx different, is that it allows you to create immutable structs in one step _by default_. In other words, other immutable struct gems force you to first define the struct, then instantiate the struct object; or, define the struct and instantiate the struct object via chaining. For example:
