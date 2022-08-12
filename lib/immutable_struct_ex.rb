@@ -9,9 +9,26 @@ module ImmutableStructEx
       options_struct = Struct.new(*hash.keys, keyword_init: true, &block)
       options_struct.new(**hash).tap do |struct|
         [:[], *struct.members].each do |method|
-          struct.instance_eval { undef :"#{method}=" }
+          evaluate(struct) do
+            <<~RUBY
+              undef :"#{method}="
+            RUBY
+          end
+        end
+        evaluate(struct) do
+          <<~RUBY
+            def ==(object)
+              return false unless object.respond_to? :to_h
+
+              to_h == object.to_h
+            end
+          RUBY
         end
       end
+    end
+
+    def evaluate(struct)
+      struct.instance_eval yield
     end
   end
 end

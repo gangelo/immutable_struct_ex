@@ -43,6 +43,32 @@ RSpec.describe ImmutableStructEx do
     end
   end
 
+  describe '#==' do
+    context 'when the hash equivalent is ==' do
+      it 'returns true' do
+        expect(subject == hash).to eq true
+      end
+    end
+
+    context 'when the hash equivalent is not ==' do
+      context 'when the keys are different' do
+        let(:not_equal_hash) { { unequal: :value1, unequal: :value2 } }
+
+        it 'returns false' do
+          expect(subject == not_equal_hash).to eq false
+        end
+      end
+
+      context 'when the values are different' do
+        let(:not_equal_hash) { { key1: :unequal, key2: :unequal } }
+
+        it 'returns false' do
+          expect(subject == not_equal_hash).to eq false
+        end
+      end
+    end
+  end
+
   context 'when passing a block' do
     subject do
       described_class.new(**hash) do
