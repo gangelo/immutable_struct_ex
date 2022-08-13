@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe ImmutableStructEx do
+RSpec.describe ImmutableStructEx, type: :module do
   subject { described_class.new(**hash) }
 
   let(:hash) { { key1: :value1, key2: :value2 } }
