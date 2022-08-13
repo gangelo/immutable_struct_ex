@@ -8,10 +8,11 @@ require 'immutable_struct_ex/immutable'
 module ImmutableStructEx
   class << self
     def new(**hash, &block)
-      options_struct = Struct.new(*hash.keys, keyword_init: true, &block)
-      options_struct.new(**hash).tap do |struct|
-        struct.extend Comparable
-        struct.extend Immutable
+      Struct.new(*hash.keys, keyword_init: true, &block).tap do |struct|
+        return struct.new(**hash).tap do |struct_object|
+          struct_object.extend Comparable
+          struct_object.extend Immutable
+        end
       end
     end
   end
