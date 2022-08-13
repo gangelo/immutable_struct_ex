@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require 'immutable_struct_ex/version'
-require 'comparable'
-require 'immutable'
+require 'immutable_struct_ex/comparable'
+require 'immutable_struct_ex/immutable'
 
 # Defines the methods used to create/manage the ImmutableStructEx struct.
 module ImmutableStructEx
