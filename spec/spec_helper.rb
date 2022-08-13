@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'immutable_struct_ex'
 require 'pry-byebug'
 require 'bundler/setup'
 require 'simplecov'
@@ -8,6 +7,9 @@ require 'simplecov'
 SimpleCov.start do
   add_filter 'spec'
 end
+
+require 'immutable_struct_ex'
+Dir[File.join(Dir.pwd, "spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

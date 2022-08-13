@@ -1,3 +1,9 @@
+### 0.2.1
+* Enhancements
+  * General refactors/cleanup
+  * Added Immutable module; when extended on a struct, makes it immutable.
+  * Added Comparable module; when extended on a struct, makes it comparable to other structs and hashes.
+
 ### 0.1.1
 * Enhancements
   * Added this CHANGELOG.md
