@@ -29,13 +29,13 @@ ImmutableStructEx allows you do this in one step:
 
 ```ruby
 immutable_struct_ex = ImmutableStructEx.new(first: 'John', last: 'Doe', phone: '(201) 230-7281')
-immutable_struct_ex.first   
+immutable_struct_ex.first
 #=> 'John'
 immutable_struct_ex[:first]
 #=> 'John'
-immutable_struct_ex.last    
+immutable_struct_ex.last
 #=> 'Doe'
-immutable_struct_ex.phone   
+immutable_struct_ex.phone
 #=> '(201) 230-7281'
 ```
 ### Immutable
@@ -58,6 +58,21 @@ immutable_struct_ex = ImmutableStructEx.new(first: 'John', last: 'Doe', phone: '
 end
 immutable_struct_ex.john?
 #=> true
+```
+
+### Other Examples
+```ruby
+user = { username: 'username', password: 'password', ssn: '123-70-9182' }
+ImmutableStructEx.new(**user) do
+  REDACT = %i(username password).freeze
+
+  def to_h
+    super.to_h.tap do |h|
+      REDACT.each { |redact| h[redact] = :redacted }
+    end
+  end
+end.to_h
+#=> {:username=>:redacted, :password=>:redacted, :ssn=>"123-70-9182"}
 ```
 
 ## Installation
