@@ -62,17 +62,35 @@ immutable_struct_ex.john?
 
 ### Other Examples
 ```ruby
-user = { username: 'username', password: 'password', ssn: '123-70-9182' }
-ImmutableStructEx.new(**user) do
-  REDACT = %i(username password).freeze
+# Redactable, immutable struct
+user = { username: 'jdoe', password: 'p@55w0rD', ssn: '123-70-9182' }
+immutable_struct_ex = ImmutableStructEx.new(**user) do
+  REDACT = %i(password ssn).freeze
 
-  def to_h
-    super.to_h.tap do |h|
-      REDACT.each { |redact| h[redact] = :redacted }
+  def inspect
+    to_s
+  end
+
+  def to_s
+    super.to_s.tap do |string|
+      REDACT.each do |redact|
+        string.gsub!(/( #{Regexp.quote(redact.to_s)}=")(.*?)(")/, '\1[REDACTED]\3')
+      end
     end
   end
-end.to_h
-#=> {:username=>:redacted, :password=>:redacted, :ssn=>"123-70-9182"}
+
+  def to_h
+    super.to_h.tap do |hash|
+      REDACT.each { |redact| hash[redact] = '[REDACTED]' }
+    end
+  end
+end
+
+immutable_struct_ex.inspect
+#=> "#<struct username=\"jdoe\", password=\"[REDACTED]\", ssn=\"[REDACTED]\">"
+
+immutable_struct_ex.to_h
+#=> {:username=>"jdoe", :password=>"[REDACTED]", :ssn=>"[REDACTED]"}
 ```
 
 ## Installation
