@@ -32,16 +32,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_development_dependency 'bundler', '~> 2.2', '>= 2.2.17'
   spec.add_development_dependency 'pry-byebug', '~> 3.9'
-  spec.add_development_dependency 'reek', '~> 6.0', '>= 6.0.4'
-  # This verson of rubocop is returning errors.
-  # spec.add_development_dependency 'rubocop', '~> 1.14'
-  spec.add_development_dependency 'rubocop', '~> 1.9.1'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.11', '>= 1.11.3'
-  spec.add_development_dependency 'rubocop-rspec', '~> 2.3'
+  spec.add_development_dependency 'reek', '~> 6.1', '>= 6.1.1'
+  spec.add_development_dependency 'rspec', '>= 3.10'
+  spec.add_development_dependency 'rubocop', '~> 1.35'
+  spec.add_development_dependency 'rubocop-performance', '~> 1.14', '>= 1.14.3'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.12', '>= 2.12.1'
   spec.add_development_dependency 'simplecov', '~> 0.21.2'
-
-  spec.add_development_dependency 'bundler', '~> 2.3.0'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'rake', '~> 13.0', '>= 13.0.6'
 end
