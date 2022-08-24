@@ -18,28 +18,24 @@ RSpec.describe ImmutableStructEx, type: :module do
   end
 
   describe '#[]=' do
-    it 'undefines :[]=' do
-      expect(subject.respond_to?(:[]=)).to eq false
+    it 'overrides :[]= and raises an error if used' do
+      expect { subject[:key1] = :boom! }.to raise_error NoMethodError
     end
   end
 
   describe '#[]' do
     it 'can be accessed using :[]' do
-      expect(hash.keys.each.all? { |key, value| subject[key] == value })
+      expect(hash.all? { |key, value| subject[key] == value }).to eq true
     end
   end
 
   describe 'getters/setters' do
     it 'defines getters from the hash keys' do
-      expect(hash.keys.all? { |key| subject.respond_to? key })
+      expect(hash.keys.all? { |key| subject.respond_to? key }).to eq true
     end
 
     it 'undefines setters created from the hash keys' do
-      expect(hash.keys.none? { |key| subject.respond_to? :"#{key}=" })
-    end
-
-    it 'sets the values using the setters' do
-      expect(hash.keys.each.all? { |key, value| subject.public_send(key) == value })
+      expect(hash.keys.none? { |key| subject.respond_to? :"#{key}=" }).to eq true
     end
   end
 

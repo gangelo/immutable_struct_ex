@@ -1,3 +1,7 @@
+### 0.2.3
+* Bug fix
+  * Fix bug in specs that failed to add criteria for passing tests (e.g. ".to eq true/false") so tests could not fail.
+
 ### 0.2.2
 * Changes
   * Restructure modules under lib/immutable_structure_ex folder.
