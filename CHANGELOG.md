@@ -1,3 +1,7 @@
+### 0.3.0
+* Changes
+  * Update README.md file with the correct gem name.
+
 ### 0.2.3
 * Bug fix
   * Fix bug in specs that failed to add criteria for passing tests (e.g. ".to eq true/false") so tests could not fail.

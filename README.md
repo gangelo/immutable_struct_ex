@@ -8,9 +8,9 @@
 
 [![License](http://img.shields.io/badge/license-MIT-yellowgreen.svg)](#license)
 
-# ImmutableStructEx
+# immutable_struct_ex
 
-_ImmutableStructEx_ is yet another immutable struct. What makes ImmutableStructEx different, is that it allows you to create immutable structs in one step _by default_. In other words, other immutable struct gems force you to first define the struct, then instantiate the struct object; or, define the struct and instantiate the struct object via chaining. For example:
+immutable_struct_ex is yet another immutable struct. What makes immutable_struct_ex different, is that it allows you to create immutable structs in one step _by default_. In other words, other immutable struct gems force you to first define the struct, then instantiate the struct object; or, define the struct and instantiate the struct object via chaining. For example:
 
 ## Other Immutable Structs
 
@@ -24,31 +24,38 @@ some_immutable_struct = SomeImmutableStruct.new(:first, :last, :phone)
                           .new(first: 'John', last: 'Doe', phone: '(201) 230-7281')
 ```
 
-## ImmutableStructEx
-ImmutableStructEx allows you do this in one step:
+## immutable_struct_ex
+immutable_struct_ex allows you to instantiate and initialize the object _in one step:_
 
 ```ruby
 immutable_struct_ex = ImmutableStructEx.new(first: 'John', last: 'Doe', phone: '(201) 230-7281')
+
 immutable_struct_ex.first
 #=> 'John'
+
 immutable_struct_ex[:first]
 #=> 'John'
+
 immutable_struct_ex.last
 #=> 'Doe'
+
 immutable_struct_ex.phone
 #=> '(201) 230-7281'
 ```
 ### Immutable
-Like other immutable structs, ImmutableStructEx also removes methods that change the state of the object:
+Like other immutable structs, immutable_struct_ex also removes methods that change the state of the object, making it _immutable:_
+
 ```ruby
 immutable_struct_ex.first = 'Joe'
 #=> NoMethodError: undefined method `first='...
+
 immutable_struct_ex[:first] = 'Joe'
 #=> NoMethodError: undefined method `[]='...
 ```
 
 ### Blocks
-Also, not unlike other immutable structs, ImmutableStructEx also allows you to pass a block:
+Also, not unlike other immutable structs, immutable_struct_ex also allows you to pass a block:
+
 ```ruby
 # With a block
 immutable_struct_ex = ImmutableStructEx.new(first: 'John', last: 'Doe', phone: '(201) 230-7281') do
@@ -56,14 +63,22 @@ immutable_struct_ex = ImmutableStructEx.new(first: 'John', last: 'Doe', phone: '
     first == 'John'
   end
 end
+
 immutable_struct_ex.john?
 #=> true
 ```
 
 ### Other Examples
+Get creative. Below is an example of an immutable struct that provides _redaction_:
+
 ```ruby
 # Redactable, immutable struct
-user = { username: 'jdoe', password: 'p@55w0rD', ssn: '123-70-9182' }
+user = {
+  username: 'jdoe',
+  password: 'p@55w0rD',
+  ssn: '123-70-9182'
+}
+
 immutable_struct_ex = ImmutableStructEx.new(**user) do
   REDACT = %i(password ssn).freeze
 
