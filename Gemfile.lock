@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    immutable_struct_ex (0.2.3)
+    immutable_struct_ex (0.3.0)
 
 GEM
   remote: https://rubygems.org/
@@ -86,4 +86,4 @@ DEPENDENCIES
   simplecov (~> 0.21.2)
 
 BUNDLED WITH
-   2.3.20
+   2.3.22
