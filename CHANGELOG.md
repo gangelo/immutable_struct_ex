@@ -1,3 +1,8 @@
+### 1.0.0
+* Changes (not really a breaking change, but just wanted to bump to 1.0.0)
+  * Limit required ruby version to ~> 3.0.
+  * Update ruby gems.
+
 ### 0.3.0
 * Changes
   * Update README.md file with the correct gem name.
