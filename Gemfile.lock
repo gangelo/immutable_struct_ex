@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    immutable_struct_ex (1.0.0)
+    immutable_struct_ex (1.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -20,7 +20,7 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
-    pry (0.14.1)
+    pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-byebug (3.10.1)
@@ -39,15 +39,15 @@ GEM
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
       rspec-mocks (~> 3.12.0)
-    rspec-core (3.12.0)
+    rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
-    rspec-expectations (3.12.0)
+    rspec-expectations (3.12.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
-    rspec-mocks (3.12.0)
+    rspec-mocks (3.12.6)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
-    rspec-support (3.12.0)
+    rspec-support (3.12.1)
     rubocop (1.56.0)
       base64 (~> 0.1.1)
       json (~> 2.3)
