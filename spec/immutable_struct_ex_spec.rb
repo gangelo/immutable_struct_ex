@@ -12,7 +12,7 @@ RSpec.describe ImmutableStructEx, type: :module do
   describe '#new' do
     context 'with a valid hash' do
       it 'does not raise an error' do
-        expect { subject }.to_not raise_error
+        expect { subject }.not_to raise_error
       end
     end
   end

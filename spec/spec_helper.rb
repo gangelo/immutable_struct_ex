@@ -9,7 +9,7 @@ SimpleCov.start do
 end
 
 require 'immutable_struct_ex'
-Dir[File.join(Dir.pwd, "spec/support/**/*.rb")].each {|f| require f}
+Dir[File.join(Dir.pwd, 'spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
