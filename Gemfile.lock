@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    immutable_struct_ex (1.0.1)
+    immutable_struct_ex (1.0.2)
 
 GEM
   remote: https://rubygems.org/
@@ -48,7 +48,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.1)
-    rubocop (1.56.0)
+    rubocop (1.56.2)
       base64 (~> 0.1.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -84,6 +84,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
