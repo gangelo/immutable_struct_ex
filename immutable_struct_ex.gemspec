@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 2.2', '>= 2.2.17'
+  spec.add_development_dependency 'bundler', '~> 2.4', '>= 2.4.21'
   spec.add_development_dependency 'pry-byebug', '~> 3.9'
   spec.add_development_dependency 'reek', '~> 6.1', '>= 6.1.1'
   spec.add_development_dependency 'rspec', '>= 3.10'
