@@ -15,6 +15,34 @@ RSpec.describe ImmutableStructEx, type: :module do
         expect { subject }.not_to raise_error
       end
     end
+
+    context 'when passing a block' do
+      subject do
+        described_class.new(**hash) do
+          def key?(key)
+            to_h.key? key
+          end
+
+          def key1?
+            key? :key1
+          end
+
+          def key2?
+            key? :key2
+          end
+
+          def key3?
+            key? :key3
+          end
+        end
+      end
+
+      it 'uses the block' do
+        expect(subject.key1?).to eq true
+        expect(subject.key2?).to eq true
+        expect(subject.key3?).to eq false
+      end
+    end
   end
 
   describe '#[]=' do
@@ -40,56 +68,66 @@ RSpec.describe ImmutableStructEx, type: :module do
   end
 
   describe '#==' do
-    context 'when the hash equivalent is ==' do
-      it 'returns true' do
-        expect(subject == hash).to eq true
-      end
-    end
-
-    context 'when the hash equivalent is not ==' do
-      context 'when the keys are different' do
-        let(:not_equal_hash) { { unequal: :value1, unequal: :value2 } }
-
-        it 'returns false' do
-          expect(subject == not_equal_hash).to eq false
+    context 'when comparing against a Hash' do
+      context 'when the hash equivalent is ==' do
+        it 'returns true' do
+          expect(subject == hash).to eq true
         end
       end
 
-      context 'when the values are different' do
-        let(:not_equal_hash) { { key1: :unequal, key2: :unequal } }
+      context 'when the hash equivalent is not ==' do
+        context 'when the keys are different' do
+          let(:not_equal_hash) { { unequal: :value1, unequal: :value2 } }
 
-        it 'returns false' do
-          expect(subject == not_equal_hash).to eq false
-        end
-      end
-    end
-  end
-
-  context 'when passing a block' do
-    subject do
-      described_class.new(**hash) do
-        def key?(key)
-          to_h.key? key
+          it 'returns false' do
+            expect(subject == not_equal_hash).to eq false
+          end
         end
 
-        def key1?
-          key? :key1
-        end
+        context 'when the values are different' do
+          let(:not_equal_hash) { { key1: :unequal, key2: :unequal } }
 
-        def key2?
-          key? :key2
-        end
-
-        def key3?
-          key? :key3
+          it 'returns false' do
+            expect(subject == not_equal_hash).to eq false
+          end
         end
       end
     end
 
-    it 'uses the block' do
-      expect(subject.key1?).to eq true
-      expect(subject.key2?).to eq true
-      expect(subject.key3?).to eq false
+    context 'when comparing against a Struct' do
+      let(:struct) do
+        Struct.new(*hash.keys, keyword_init: true).new(**hash)
+      end
+
+      context 'when the Struct equivalent is ==' do
+        it 'returns true' do
+          expect(subject == struct).to eq true
+        end
+      end
+
+      context 'when the Struct equivalent is not ==' do
+        context 'when the keys are different' do
+          let(:not_equal_struct) do
+            not_equal_hash = { unequal: :value1, unequal: :value2 }
+            Struct.new(*not_equal_hash.keys, keyword_init: true).new(**not_equal_hash)
+          end
+
+          it 'returns false' do
+            expect(subject == not_equal_struct).to eq false
+          end
+        end
+
+        context 'when the values are different' do
+          let(:not_equal_struct) do
+            not_equal_hash = { key1: :unequal, key2: :unequal }
+            Struct.new(*not_equal_hash.keys, keyword_init: true).new(**not_equal_hash)
+          end
+
+          it 'returns false' do
+            expect(subject == not_equal_struct).to eq false
+          end
+        end
+      end
     end
   end
 end
