@@ -1,6 +1,6 @@
 [![Ruby](https://github.com/gangelo/immutable_struct_ex/actions/workflows/ruby.yml/badge.svg)](https://github.com/gangelo/immutable_struct_ex/actions/workflows/ruby.yml)
-[![GitHub version](http://badge.fury.io/gh/gangelo%2Fimmutable_struct_ex.svg?refresh=5)](https://badge.fury.io/gh/gangelo%2Fimmutable_struct_ex)
-[![Gem Version](https://badge.fury.io/rb/immutable_struct_ex.svg?refresh=5)](https://badge.fury.io/rb/immutable_struct_ex)
+[![GitHub version](http://badge.fury.io/gh/gangelo%2Fimmutable_struct_ex.svg?refresh=6)](https://badge.fury.io/gh/gangelo%2Fimmutable_struct_ex)
+[![Gem Version](https://badge.fury.io/rb/immutable_struct_ex.svg?refresh=6)](https://badge.fury.io/rb/immutable_struct_ex)
 [![](http://ruby-gem-downloads-badge.herokuapp.com/immutable_struct_ex?type=total)](http://www.rubydoc.info/gems/immutable_struct_ex/)
 [![Documentation](http://img.shields.io/badge/docs-rdoc.info-blue.svg)](http://www.rubydoc.info/gems/immutable_struct_ex/)
 [![Report Issues](https://img.shields.io/badge/report-issues-red.svg)](https://github.com/gangelo/immutable_struct_ex/issues)
