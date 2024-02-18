@@ -1,3 +1,11 @@
+### [1.0.9] 2024-02-18
+
+Changes
+
+- Update ruby gems.
+- Use rubocop-rake gem to run rubocop checks.
+- Add rubocop to default rake tasks in Rakefile.
+
 ### [1.0.8] 2024-01-19
 
 Changes
