@@ -1,3 +1,10 @@
+### [1.0.10] 2024-02-19
+
+Changes
+
+- Update bundler.
+- Fix post install message to remove references to dsu gem.
+
 ### [1.0.9] 2024-02-18
 
 Changes

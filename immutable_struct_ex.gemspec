@@ -32,21 +32,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 2.4', '>= 2.4.21'
-  spec.add_development_dependency 'pry-byebug', '~> 3.9'
-  spec.add_development_dependency 'reek', '~> 6.1', '>= 6.1.1'
-  spec.add_development_dependency 'rspec', '>= 3.10'
-  spec.add_development_dependency 'rubocop', '~> 1.35'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.14', '>= 1.14.3'
-  spec.add_development_dependency 'rubocop-rake', '~> 0.6.0'
-  spec.add_development_dependency 'rubocop-rspec', '~> 2.12', '>= 2.12.1'
-  spec.add_development_dependency 'simplecov', '~> 0.22.0'
-  spec.add_development_dependency 'rake', '~> 13.0', '>= 13.0.6'
   spec.post_install_message = <<~POST_INSTALL
     Thank you for installing immutable_struct_ex.
 
-    View the dsu README.md here: https://github.com/gangelo/immutable_struct_ex
-    View the dsu CHANGELOG.md: https://github.com/gangelo/immutable_struct_ex/blob/main/CHANGELOG.md
+    View the immutable_struct_ex README.md here: https://github.com/gangelo/immutable_struct_ex
+    View the immutable_struct_ex CHANGELOG.md: https://github.com/gangelo/immutable_struct_ex/blob/main/CHANGELOG.md
 
                 *
                ***

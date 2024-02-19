@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    immutable_struct_ex (1.0.9)
+    immutable_struct_ex (1.0.10)
 
 GEM
   remote: https://rubygems.org/
@@ -118,17 +118,17 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bundler (~> 2.4, >= 2.4.21)
+  bundler (>= 2.5, < 3.0)
   immutable_struct_ex!
-  pry-byebug (~> 3.9)
-  rake (~> 13.0, >= 13.0.6)
-  reek (~> 6.1, >= 6.1.1)
-  rspec (>= 3.10)
-  rubocop (~> 1.35)
-  rubocop-performance (~> 1.14, >= 1.14.3)
-  rubocop-rake (~> 0.6.0)
-  rubocop-rspec (~> 2.12, >= 2.12.1)
-  simplecov (~> 0.22.0)
+  pry-byebug (>= 3.9, < 4.0)
+  rake (>= 13.0, < 14.0)
+  reek (>= 6.1, < 7.0)
+  rspec (>= 3.12, < 4.0)
+  rubocop (>= 1.35, < 2.0)
+  rubocop-performance (>= 1.14, < 2.0)
+  rubocop-rake (>= 0.6, < 1.0)
+  rubocop-rspec (>= 2.12, < 3.0)
+  simplecov (>= 0.22.0, < 1.0)
 
 BUNDLED WITH
-   2.4.21
+   2.5.6
