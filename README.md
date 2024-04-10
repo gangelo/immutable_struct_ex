@@ -13,11 +13,11 @@ immutable_struct_ex is yet another immutable struct. What makes immutable_struct
 ## Other Immutable Structs
 
 ```ruby
-# Two steps...
+# How OTHER immutable structs declare and instantiate, two steps...
 some_immutable_struct = SomeImmutableStruct.new(:first, :last, :phone)
 some_immutable_struct.new(first: 'John', last: 'Doe', phone: '(201) 230-7281')
 
-# Chaining...
+# How OTHER immutable structs chain...
 some_immutable_struct = SomeImmutableStruct.new(:first, :last, :phone)
                           .new(first: 'John', last: 'Doe', phone: '(201) 230-7281')
 ```
