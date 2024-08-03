@@ -1,3 +1,10 @@
+### [1.0.11] 2024-08-03
+
+Changes
+
+- Update ruby gems.
+- Update rexml gem to fix CVE.
+
 ### [1.0.10] 2024-02-19
 
 Changes
